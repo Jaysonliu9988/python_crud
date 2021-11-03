@@ -1,4 +1,5 @@
 import json
+_DATA_PATH_ = ''
 
 # This function repeatedly prompts for input until an integer is entered.
 def input_int(prompt):
@@ -18,3 +19,6 @@ def input_something(prompt):
         else:
             return char_target
 
+def save_data():
+    with open(_DATA_PATH_, 'w') as w:
+        w.write(json.dumps())
