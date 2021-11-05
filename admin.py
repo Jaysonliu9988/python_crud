@@ -22,3 +22,11 @@ def input_something(prompt):
 def save_data():
     with open(_DATA_PATH_, 'w') as w:
         w.write(json.dumps())
+
+print('Welcome to the Fast-Food Quiz Admin Program.')
+
+try:
+    with open(_DATA_PATH_, 'r') as f:
+        data = json.loads(f.read())
+except:
+    data = []
