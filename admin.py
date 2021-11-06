@@ -30,3 +30,16 @@ try:
         data = json.loads(f.read())
 except:
     data = []
+
+while True:
+    print('\nChoose [a]dd, [l]ist, [s]earch, [v]iew, [d]elete or [q]uit.')
+    # Convert input to lowercase to make choice selection case-insensitive.
+    choice = input('> ').lower()
+    if choice == 'a':
+        name = input_something(prompt='Enter name of fast-food item:')
+        energy = input_int(prompt='Enter energy in kilojoules:')
+        fat = input_int(prompt='Enter fat in grams:')
+        protein = input_int(prompt='Enter protein grams:')
+        carbohydrates = input_int(prompt='Enter carbohydrates in grams:')
+        sugars = input_int(prompt='Enter sugars in grams:')
+        sodium = input_int(prompt='Enter sodium in milligrams:')
