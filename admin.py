@@ -47,28 +47,72 @@ while True:
     elif choice == 'l':
     # List the current fast-food items.
     # See Point 4 of the "Requirements of admin.py" section of the assignment brief.
-    if not data:
-        print('There are no items saved.')
-        pass
-    print('List of items:')
-    for i in list(enumerate(data)):
-        print('{0}) {1}'.format(i[0]+1, i[1]['name']))
+        if not data:
+            print('There are no items saved.')
+            pass
+        print('List of items:')
+        for i in list(enumerate(data)):
+            print('{0}) {1}'.format(i[0]+1, i[1]['name']))
 
     elif choice == 's':
-    # Search the current fast-food items.
-    # See Point 5 of the "Requirements of admin.py" section of the assignment brief.
-    search_result = []
-    if not data:
-        print('No items saved')
-        continue
-    search_target = input_something(prompt='Enter search term:')
-    for i in data:
-        if search_target.lower() in i['name'].lower():
-            search_result.append(i['name'])
-    if not search_result:
-        print('No results found')
-        continue
-    print('Search results:')
-    for s in range(len(search_result)):
-        print('{0}) {1}'.format(s + 1, search_result[s]))
-    pass
+        # Search the current fast-food items.
+        # See Point 5 of the "Requirements of admin.py" section of the assignment brief.
+        search_result = []
+        if not data:
+            print('No items saved')
+            continue
+        search_target = input_something(prompt='Enter search term:')
+        for i in data:
+            if search_target.lower() in i['name'].lower():
+                search_result.append(i['name'])
+        if not search_result:
+            print('No results found')
+            continue
+        print('Search results:')
+        for s in range(len(search_result)):
+            print('{0}) {1}'.format(s + 1, search_result[s]))
+        pass
+
+    elif choice == 'v':
+        # View a fast-food item.
+        # See Point 6 of the "Requirements of admin.py" section of the assignment brief.
+        last_view_target = input_int(prompt='Need to enter an integer:')
+        if last_view_target <= 0:
+            print('Index number shown to by users start from 1')
+            continue
+        try:
+            for keys, vaules in data[last_view_target - 1].items():
+                if keys == 'energy':
+                    d = 'kilojoules'
+                elif keys == 'name':
+                    d = ''
+                elif keys == 'sodium':
+                    d = 'milligram'
+                else:
+                    d = 'grams'
+                print("{0}:{1} {2}".format(keys.capitalize(), vaules, d))
+        except IndexError:
+            print('Invalid index number')
+        pass
+
+    elif choice == 'v':
+        # View a fast-food item.
+        # See Point 6 of the "Requirements of admin.py" section of the assignment brief.
+        last_view_target = input_int(prompt='Need to enter an integer:')
+        if last_view_target <= 0:
+            print('Index number shown to by users start from 1')
+            continue
+        try:
+            for keys, vaules in data[last_view_target - 1].items():
+                if keys == 'energy':
+                    d = 'kilojoules'
+                elif keys == 'name':
+                    d = ''
+                elif keys == 'sodium':
+                    d = 'milligram'
+                else:
+                    d = 'grams'
+                print("{0}:{1} {2}".format(keys.capitalize(), vaules, d))
+        except IndexError:
+            print('Invalid index number')
+        pass
