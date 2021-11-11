@@ -44,12 +44,31 @@ while True:
         sugars = input_int(prompt='Enter sugars in grams:')
         sodium = input_int(prompt='Enter sodium in milligrams:')
 
-        elif choice == 'l':
-        # List the current fast-food items.
-        # See Point 4 of the "Requirements of admin.py" section of the assignment brief.
-        if not data:
-            print('There are no items saved.')
-            pass
-        print('List of items:')
-        for i in list(enumerate(data)):
-            print('{0}) {1}'.format(i[0]+1, i[1]['name']))
+    elif choice == 'l':
+    # List the current fast-food items.
+    # See Point 4 of the "Requirements of admin.py" section of the assignment brief.
+    if not data:
+        print('There are no items saved.')
+        pass
+    print('List of items:')
+    for i in list(enumerate(data)):
+        print('{0}) {1}'.format(i[0]+1, i[1]['name']))
+
+    elif choice == 's':
+    # Search the current fast-food items.
+    # See Point 5 of the "Requirements of admin.py" section of the assignment brief.
+    search_result = []
+    if not data:
+        print('No items saved')
+        continue
+    search_target = input_something(prompt='Enter search term:')
+    for i in data:
+        if search_target.lower() in i['name'].lower():
+            search_result.append(i['name'])
+    if not search_result:
+        print('No results found')
+        continue
+    print('Search results:')
+    for s in range(len(search_result)):
+        print('{0}) {1}'.format(s + 1, search_result[s]))
+    pass
