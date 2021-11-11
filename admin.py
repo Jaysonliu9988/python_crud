@@ -43,3 +43,13 @@ while True:
         carbohydrates = input_int(prompt='Enter carbohydrates in grams:')
         sugars = input_int(prompt='Enter sugars in grams:')
         sodium = input_int(prompt='Enter sodium in milligrams:')
+
+        elif choice == 'l':
+        # List the current fast-food items.
+        # See Point 4 of the "Requirements of admin.py" section of the assignment brief.
+        if not data:
+            print('There are no items saved.')
+            pass
+        print('List of items:')
+        for i in list(enumerate(data)):
+            print('{0}) {1}'.format(i[0]+1, i[1]['name']))
