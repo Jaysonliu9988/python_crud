@@ -116,3 +116,35 @@ while True:
         except IndexError:
             print('Invalid index number')
         pass
+    
+    elif choice == 'd':
+        # Delete a fast-food item.
+        # See Point 7 of the "Requirements of admin.py" section of the assignment brief.
+        delete_target = input_int(prompt='Enter item number to delete:')
+        if not data:
+            print('No items saved')
+            continue
+        if delete_target <= 0:
+            print('Index number shown to by users start from 1')
+            continue
+        try:
+            delete_target_name = data[delete_target - 1]['name']
+            del data[delete_target - 1]
+            save_data(data_list=data)
+            print('{0} deleted.'.format(delete_target_name))
+            pass
+        except IndexError:
+            print('Invalid index number')
+
+    elif choice == 'q':
+        # End the program.
+        # See Point 8 of the "Requirements of admin.py" section of the assignment brief.
+        print('Goodbye!')
+        break
+
+
+
+    else:
+        # Print "invalid choice" message.
+        # See Point 9 of the "Requirements of admin.py" section of the assignment brief.
+        pass
